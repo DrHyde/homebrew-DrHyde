@@ -5,7 +5,7 @@ class TomlMerge < Formula
 
   def install
 
-    system "cargo build --release"
+    system "cargo", "build", "--release"
     bin.install "target/release/toml-merge"
 
   end

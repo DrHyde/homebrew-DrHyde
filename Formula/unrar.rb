@@ -1,8 +1,8 @@
 class Unrar < Formula
   desc "Extract, view, and test RAR archives"
   homepage "https://www.rarlab.com/"
-  url "https://www.rarlab.com/rar/unrarsrc-6.0.5.tar.gz"
-  sha256 "7e34064c9e97464462c81aed80c25619149f71d4900995021780787f51dd63f0"
+  url "https://www.rarlab.com/rar/unrarsrc-6.2.5.tar.gz"
+  sha256 "9a3974410d1d340e3998dd2a6f98faefbe838cad556266e714adfb0e8cf9377c"
 
   livecheck do
     url "https://www.rarlab.com/rar_add.htm"
@@ -15,13 +15,13 @@ class Unrar < Formula
     # dylibs for them.
     inreplace "makefile", "libunrar.so", "libunrar.dylib"
 
-    system "make"
+    system "make", "CXXFLAGS=-std=c++11"
     bin.install "unrar"
 
     # Explicitly clean up for the library build to avoid an issue with an
     # apparent implicit clean which confuses the dependencies.
     system "make", "clean"
-    system "make", "lib"
+    system "make", "lib", "CXXFLAGS=-std=c++11"
     lib.install shared_library("libunrar")
   end
 

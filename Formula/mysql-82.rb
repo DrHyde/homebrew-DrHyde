@@ -1,3 +1,4 @@
+# mostly copied from https://github.com/Homebrew/homebrew-core/blob/1339a076aed1714b99e8b226ad3bdd64feb08b6f/Formula/m/mysql.rb
 class Mysql82 < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/8.2/en/"
